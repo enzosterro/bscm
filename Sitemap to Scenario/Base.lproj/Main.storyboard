@@ -1292,10 +1292,10 @@
                         <outlet property="reportTextField" destination="k1u-Hp-oGl" id="LCO-oJ-AbZ"/>
                         <outlet property="selectorsTextField" destination="1Af-hs-lej" id="vZb-eC-IG6"/>
                         <outlet property="urlTextField" destination="6MC-G4-mDc" id="5Z5-YL-7yY"/>
-                        <outlet property="viewPort1" destination="EAC-yv-gTN" id="JDV-ew-OgO"/>
-                        <outlet property="viewPort2" destination="sWe-jp-1uK" id="X9B-tC-G7n"/>
-                        <outlet property="viewPort3" destination="Wpq-4C-dOT" id="E5s-Jt-UhX"/>
-                        <outlet property="viewPort4" destination="uLG-aI-mhv" id="JB5-vv-0EP"/>
+                        <outlet property="viewPortPhone" destination="EAC-yv-gTN" id="25V-xx-VJn"/>
+                        <outlet property="viewPortTabletF" destination="sWe-jp-1uK" id="eu3-VX-OqB"/>
+                        <outlet property="viewPortTabletH" destination="uLG-aI-mhv" id="aSa-WP-hCV"/>
+                        <outlet property="viewPortTabletV" destination="Wpq-4C-dOT" id="ezE-Hr-s3e"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

@@ -28,10 +28,10 @@ class ViewController: NSViewController {
     @IBOutlet weak var reportTextField: NSTextField!
     @IBOutlet weak var debugComboBox: NSComboBox!
     @IBOutlet weak var portTextField: NSTextField!
-    @IBOutlet weak var viewPort1: NSButton!
-    @IBOutlet weak var viewPort2: NSButton!
-    @IBOutlet weak var viewPort3: NSButton!
-    @IBOutlet weak var viewPort4: NSButton!
+    @IBOutlet weak var viewPortPhone: NSButton!
+    @IBOutlet weak var viewPortTabletF: NSButton!
+    @IBOutlet weak var viewPortTabletV: NSButton!
+    @IBOutlet weak var viewPortTabletH: NSButton!
     
     @IBAction func makeScenarioButtonPressed(sender: NSButton) {
         
@@ -115,10 +115,10 @@ class ViewController: NSViewController {
         var viewPort = [NSDictionary]()
         let viewPortStruct = ViewPortsConstructor()
         
-        if viewPort1.intValue == 1 { viewPort.append(viewPortStruct.constructViewPorts("phone", vpWidth: 320, vpPortHeight: 480)) }
-        if viewPort3.intValue == 1 { viewPort.append(viewPortStruct.constructViewPorts("tablet_v", vpWidth: 568, vpPortHeight: 1024)) }
-        if viewPort2.intValue == 1 { viewPort.append(viewPortStruct.constructViewPorts("tablet_f", vpWidth: 1920, vpPortHeight: 1080)) }
-        if viewPort4.intValue == 1 { viewPort.append(viewPortStruct.constructViewPorts("tablet_h", vpWidth: 1024, vpPortHeight: 768)) }
+        if viewPortPhone.intValue == 1 { viewPort.append(viewPortStruct.constructViewPorts("phone", vpWidth: 320, vpPortHeight: 480)) }
+        if viewPortTabletV.intValue == 1 { viewPort.append(viewPortStruct.constructViewPorts("tablet_v", vpWidth: 568, vpPortHeight: 1024)) }
+        if viewPortTabletF.intValue == 1 { viewPort.append(viewPortStruct.constructViewPorts("tablet_f", vpWidth: 1920, vpPortHeight: 1080)) }
+        if viewPortTabletH.intValue == 1 { viewPort.append(viewPortStruct.constructViewPorts("tablet_h", vpWidth: 1024, vpPortHeight: 768)) }
 
         let scenarioStruct = ScenariosConstructor()
 
