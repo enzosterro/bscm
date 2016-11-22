@@ -2,5 +2,5 @@ language: objective-c
 osx_image: xcode8.1
 xcode_project: 'BackstopJS SC.xcodeproj'
 xcode_scheme: 'Sitemap to Scenario'
-xcode_sdk: macosx10.12
+xcode_sdk: macosx10.11
 script: xcodebuild -project "BackstopJS SC.xcodeproj" -scheme "Sitemap to Scenario" build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
