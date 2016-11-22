@@ -9,15 +9,15 @@
 import Foundation
 
 struct ViewPortsConstructor {
-    func constructViewPorts(vpName: String, vpWidth: Int, vpPortHeight: Int) -> [String: AnyObject] {
-        return ["name": vpName, "width": vpWidth, "height": vpPortHeight]
+    func constructViewPorts(_ vpName: String, vpWidth: Int, vpPortHeight: Int) -> [String: AnyObject] {
+        return ["name": vpName as AnyObject, "width": vpWidth as AnyObject, "height": vpPortHeight as AnyObject]
     }
 }
 
 struct ScenariosConstructor {
-    func constructScenario(scLabel: String, scUrl: String, scHideSelectors: String, scRemoveSelectors: String, scSelectors: String, scReadyEvent: String, scDelay: Int, scMisMatchThreshold: Double, scOnBeforeScript: String, scOnReadyScript: String) -> [String: AnyObject] {
-        return ["label": scLabel,
-                "url": scUrl,
+    func constructScenario(_ scLabel: String, scUrl: String, scHideSelectors: String, scRemoveSelectors: String, scSelectors: String, scReadyEvent: String, scDelay: Int, scMisMatchThreshold: Double, scOnBeforeScript: String, scOnReadyScript: String) -> [String: Any] {
+        return ["label": scLabel as AnyObject,
+                "url": scUrl as AnyObject,
                 "hideSelectors": [scHideSelectors],
                 "removeSelectors": [scRemoveSelectors],
                 "selectors": [scSelectors],
@@ -29,9 +29,10 @@ struct ScenariosConstructor {
     }
 }
 
+
 struct PathsConstructor {
     
-    func constructPaths(pcBitmapsReference: String, pcBitmapsTest: String, pcCompareData: String, pcCasperScripts: String) -> [String: String] {
+    func constructPaths(_ pcBitmapsReference: String, pcBitmapsTest: String, pcCompareData: String, pcCasperScripts: String) -> [String: String] {
         return ["bitmaps_reference": pcBitmapsReference,
                 "bitmaps_test": pcBitmapsTest,
                 "compare_data": pcCompareData,
@@ -40,14 +41,14 @@ struct PathsConstructor {
 }
 
 struct DictionaryConstructor {
-    func construct(dcViewPorts: [NSDictionary], dcScenarios: [[String: AnyObject]], dcPaths: [String: String], dcEngine: String, dcReport: [String], dcCasperFlags: [String], dcDebug: Bool, dcPort: Int) -> [String: AnyObject] {
-        return ["viewports": dcViewPorts,
-                "scenarios": dcScenarios,
-                "paths": dcPaths,
-                "engine": dcEngine,
-                "report": dcReport,
-                "casperFlags": dcCasperFlags,
-                "debug": dcDebug,
+    func construct(_ dcViewPorts: [NSDictionary], dcScenarios: [[String: AnyObject]], dcPaths: [String: String], dcEngine: String, dcReport: [String], dcCasperFlags: [String], dcDebug: Bool, dcPort: Int) -> [String: Any] {
+        return ["viewports": dcViewPorts as AnyObject,
+                "scenarios": dcScenarios as AnyObject,
+                "paths": dcPaths as AnyObject,
+                "engine": dcEngine as AnyObject,
+                "report": dcReport as AnyObject,
+                "casperFlags": dcCasperFlags as AnyObject,
+                "debug": dcDebug as AnyObject,
                 "port": dcPort]
     }
 }

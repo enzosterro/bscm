@@ -1,7 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11542"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -722,7 +724,7 @@
                                             <rect key="frame" x="10" y="33" width="413" height="346"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6MC-G4-mDc">
+                                                <textField verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6MC-G4-mDc">
                                                     <rect key="frame" x="148" y="260" width="221" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="221" id="oMo-D6-DeS"/>
@@ -766,7 +768,7 @@
                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
-                                                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1Af-hs-lej">
+                                                <textField verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Af-hs-lej">
                                                     <rect key="frame" x="148" y="230" width="221" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="221" id="Ugg-7o-e9f"/>
@@ -777,7 +779,7 @@
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
-                                                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="05F-RM-3fo">
+                                                <textField verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="05F-RM-3fo">
                                                     <rect key="frame" x="148" y="200" width="221" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="221" id="yVJ-6s-5P5"/>
@@ -799,7 +801,7 @@
                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
-                                                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UAU-8C-sUV">
+                                                <textField verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UAU-8C-sUV">
                                                     <rect key="frame" x="148" y="170" width="221" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="221" id="yxj-5V-Ex1"/>
@@ -832,7 +834,7 @@
                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
-                                                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lLQ-fg-fxc">
+                                                <textField verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lLQ-fg-fxc">
                                                     <rect key="frame" x="148" y="140" width="221" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="221" id="DXj-bX-hg0"/>
@@ -854,7 +856,7 @@
                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
-                                                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="J7G-eJ-g7e">
+                                                <textField verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J7G-eJ-g7e">
                                                     <rect key="frame" x="148" y="110" width="221" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="221" id="FzK-qf-acN"/>
@@ -876,12 +878,12 @@
                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
-                                                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nu7-gn-3JA">
+                                                <textField verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nu7-gn-3JA">
                                                     <rect key="frame" x="148" y="50" width="221" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="221" id="O0v-eZ-tLz"/>
                                                     </constraints>
-                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="0.1" placeholderString="0.1" bezelStyle="round" id="PB2-Xx-YQY">
+                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="0.1" placeholderString="0.1" bezelStyle="round" id="PB2-Xx-YQY">
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -909,12 +911,12 @@
                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
-                                                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gRh-H1-DDf">
+                                                <textField verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gRh-H1-DDf">
                                                     <rect key="frame" x="148" y="20" width="60" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="60" id="RJz-qa-Gd6"/>
                                                     </constraints>
-                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="100" placeholderString="500" bezelStyle="round" id="3ix-N6-bUN">
+                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="100" placeholderString="500" bezelStyle="round" id="3ix-N6-bUN">
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -948,7 +950,7 @@
                                                         <font key="font" metaFont="system"/>
                                                     </buttonCell>
                                                 </button>
-                                                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="R4t-ru-3n8">
+                                                <textField verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R4t-ru-3n8">
                                                     <rect key="frame" x="148" y="80" width="221" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="221" id="DCy-wa-eRs"/>
@@ -1015,7 +1017,7 @@
                                             <rect key="frame" x="10" y="33" width="413" height="346"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xmt-x5-x3s">
+                                                <textField verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xmt-x5-x3s">
                                                     <rect key="frame" x="156" y="303" width="221" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="221" id="lvN-Fs-Cbo"/>
@@ -1037,7 +1039,7 @@
                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
-                                                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VpC-Ul-Eua">
+                                                <textField verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VpC-Ul-Eua">
                                                     <rect key="frame" x="156" y="273" width="221" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="221" id="3pB-VI-Tln"/>
@@ -1070,7 +1072,7 @@
                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
-                                                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FCd-IK-ZUR">
+                                                <textField verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FCd-IK-ZUR">
                                                     <rect key="frame" x="156" y="213" width="221" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="221" id="0Vd-ds-ubR"/>
@@ -1092,7 +1094,7 @@
                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
-                                                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sHw-tR-HOn">
+                                                <textField verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sHw-tR-HOn">
                                                     <rect key="frame" x="156" y="153" width="221" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="221" id="fCa-tM-BWV"/>
@@ -1114,7 +1116,7 @@
                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
-                                                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JzS-vo-WY6">
+                                                <textField verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JzS-vo-WY6">
                                                     <rect key="frame" x="156" y="183" width="221" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="221" id="ud9-yR-l1c"/>
@@ -1136,7 +1138,7 @@
                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
-                                                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="k1u-Hp-oGl">
+                                                <textField verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k1u-Hp-oGl">
                                                     <rect key="frame" x="156" y="123" width="221" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="221" id="xuL-Hn-FUf"/>
@@ -1169,12 +1171,12 @@
                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
-                                                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nZ0-H4-jCM">
+                                                <textField verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nZ0-H4-jCM">
                                                     <rect key="frame" x="156" y="63" width="60" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="60" id="Cvi-Fp-O4k"/>
                                                     </constraints>
-                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="left" title="3001" placeholderString="" bezelStyle="round" id="s0p-ci-usN">
+                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="left" title="3001" placeholderString="" bezelStyle="round" id="s0p-ci-usN">
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1191,12 +1193,12 @@
                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
-                                                <comboBox verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uM1-zX-L2K">
+                                                <comboBox verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uM1-zX-L2K">
                                                     <rect key="frame" x="156" y="89" width="224" height="26"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="221" id="3kL-f2-rMg"/>
                                                     </constraints>
-                                                    <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" title="false" bezelStyle="round" completes="NO" numberOfVisibleItems="2" id="dLR-NI-U2d">
+                                                    <comboBoxCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" title="false" bezelStyle="round" completes="NO" numberOfVisibleItems="2" id="dLR-NI-U2d">
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1206,7 +1208,7 @@
                                                         </objectValues>
                                                     </comboBoxCell>
                                                 </comboBox>
-                                                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Rfi-kB-UTU">
+                                                <textField verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rfi-kB-UTU">
                                                     <rect key="frame" x="156" y="243" width="221" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="221" id="FDe-GL-r2u"/>
