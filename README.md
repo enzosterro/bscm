@@ -1,6 +1,6 @@
 [![Swift][swift-badge]][swift-url]
 [![Platform][platform-badge]][platform-url]
-[![Build Status][build-status-badge]][build-status-url]
+[![Build Status][build-status-badge]]
  
 [swift-badge]: https://img.shields.io/badge/Swift-3.0-green.svg
 [swift-url]: https://swift.org
