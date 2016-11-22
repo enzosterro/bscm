@@ -1,12 +1,5 @@
-[![Swift][swift-badge]][swift-url]
-[![Platform][platform-badge]][platform-url]
-[![Build Status][build-status-badge]][build-status-url]
- 
-[swift-badge]: https://img.shields.io/badge/Swift-3.0-green.svg
-[swift-url]: https://swift.org
-[platform-badge]: https://img.shields.io/badge/Platforms-OS%20X%20--%20Linux-lightgray.svg
-[platform-url]: https://swift.org
-[build-status-badge]: https://travis-ci.org/enzosterro/bscm.svg?branch=master
+![](https://travis-ci.org/enzosterro/bscm.svg?branch=master)
+[![Twitter](https://img.shields.io/badge/twitter-%40enzo__sterro-blue.svg)](https://twitter.com/enzo_sterro)
 
 # BackstopJS Scenarios Constructor
 BackstopJS Scenarios Constructor is a small tool for macOS to help you make a configuration file from `sitemap.xml` for [BackstopJS](https://github.com/garris/BackstopJS) regression testing.
