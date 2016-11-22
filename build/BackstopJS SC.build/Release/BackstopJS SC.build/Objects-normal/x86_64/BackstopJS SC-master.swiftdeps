@@ -1,8 +1,0 @@
-version: "Apple Swift version 3.0.1 (swiftlang-800.0.58.6 clang-800.0.42.1)"
-options: "aac8a39bf626c0f4121cc0ab4c3953fe"
-build_time: [533132938, 462585000]
-inputs:
-  "/Users/enzo/Downloads/Swift/My Projects/BackstopJS SC/Sitemap to Scenario/DictionaryConstructor.swift": [9223372036854775807, 0]
-  "/Users/enzo/Downloads/Swift/My Projects/BackstopJS SC/Sitemap to Scenario/ViewController.swift": [9223372036854775807, 0]
-  "/Users/enzo/Downloads/Swift/My Projects/BackstopJS SC/Sitemap to Scenario/SWXMLHash.swift": [9223372036854775807, 0]
-  "/Users/enzo/Downloads/Swift/My Projects/BackstopJS SC/Sitemap to Scenario/AppDelegate.swift": [9223372036854775807, 0]
