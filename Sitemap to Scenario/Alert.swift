@@ -22,7 +22,7 @@ struct Alert {
 			myPopup.addButton(withTitle: "Cancel")
 		}
 
-		_ = myPopup.runModal()
+		myPopup.runModal()
 
 	}
 
