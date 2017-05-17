@@ -14,6 +14,10 @@
 		C6CF51A11D226DAD0052B8F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6CF519F1D226DAD0052B8F6 /* Main.storyboard */; };
 		C6CF51A91D227BD60052B8F6 /* SWXMLHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CF51A81D227BD60052B8F6 /* SWXMLHash.swift */; };
 		C6E264D41D26771D0056EDBD /* DictionaryConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E264D31D26771D0056EDBD /* DictionaryConstructor.swift */; };
+		C6F5A3DB1ECC5C6700B31FC6 /* PathsConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F5A3DA1ECC5C6700B31FC6 /* PathsConstructor.swift */; };
+		C6F5A3DD1ECC5C9600B31FC6 /* ScenariosConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F5A3DC1ECC5C9600B31FC6 /* ScenariosConstructor.swift */; };
+		C6F5A3DF1ECC5CB200B31FC6 /* ViewPortsConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F5A3DE1ECC5CB200B31FC6 /* ViewPortsConstructor.swift */; };
+		C6F5A3E21ECC60E700B31FC6 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F5A3E11ECC60E700B31FC6 /* Alert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,10 @@
 		C6CF51A21D226DAD0052B8F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6CF51A81D227BD60052B8F6 /* SWXMLHash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SWXMLHash.swift; sourceTree = "<group>"; };
 		C6E264D31D26771D0056EDBD /* DictionaryConstructor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryConstructor.swift; sourceTree = "<group>"; };
+		C6F5A3DA1ECC5C6700B31FC6 /* PathsConstructor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathsConstructor.swift; sourceTree = "<group>"; };
+		C6F5A3DC1ECC5C9600B31FC6 /* ScenariosConstructor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScenariosConstructor.swift; sourceTree = "<group>"; };
+		C6F5A3DE1ECC5CB200B31FC6 /* ViewPortsConstructor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewPortsConstructor.swift; sourceTree = "<group>"; };
+		C6F5A3E11ECC60E700B31FC6 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +47,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C60C11E51ECC5A9900E80D30 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C6CF51A21D226DAD0052B8F6 /* Info.plist */,
+				C6CF519D1D226DAD0052B8F6 /* Assets.xcassets */,
+				C689392C1D27DBCC0045977F /* appImage.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		C6CF518D1D226DAD0052B8F6 = {
 			isa = PBXGroup;
 			children = (
@@ -58,17 +76,51 @@
 		C6CF51981D226DAD0052B8F6 /* Project */ = {
 			isa = PBXGroup;
 			children = (
-				C6CF51991D226DAD0052B8F6 /* AppDelegate.swift */,
-				C6CF519B1D226DAD0052B8F6 /* ViewController.swift */,
-				C6E264D31D26771D0056EDBD /* DictionaryConstructor.swift */,
-				C6CF51A81D227BD60052B8F6 /* SWXMLHash.swift */,
-				C6CF519D1D226DAD0052B8F6 /* Assets.xcassets */,
-				C689392C1D27DBCC0045977F /* appImage.png */,
-				C6CF519F1D226DAD0052B8F6 /* Main.storyboard */,
-				C6CF51A21D226DAD0052B8F6 /* Info.plist */,
+				C6F5A3D81ECC5C2100B31FC6 /* Views */,
+				C6F5A3D71ECC5C0700B31FC6 /* Helpers */,
+				C60C11E51ECC5A9900E80D30 /* Resources */,
 			);
 			name = Project;
 			path = "Sitemap to Scenario";
+			sourceTree = "<group>";
+		};
+		C6F5A3D71ECC5C0700B31FC6 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C6E264D31D26771D0056EDBD /* DictionaryConstructor.swift */,
+				C6F5A3DA1ECC5C6700B31FC6 /* PathsConstructor.swift */,
+				C6F5A3DC1ECC5C9600B31FC6 /* ScenariosConstructor.swift */,
+				C6CF51A81D227BD60052B8F6 /* SWXMLHash.swift */,
+				C6F5A3DE1ECC5CB200B31FC6 /* ViewPortsConstructor.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		C6F5A3D81ECC5C2100B31FC6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C6F5A3E01ECC60D600B31FC6 /* Common */,
+				C6F5A3D91ECC5C3300B31FC6 /* Storyboards */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		C6F5A3D91ECC5C3300B31FC6 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				C6CF519F1D226DAD0052B8F6 /* Main.storyboard */,
+				C6CF51991D226DAD0052B8F6 /* AppDelegate.swift */,
+				C6CF519B1D226DAD0052B8F6 /* ViewController.swift */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		C6F5A3E01ECC60D600B31FC6 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				C6F5A3E11ECC60E700B31FC6 /* Alert.swift */,
+			);
+			name = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -105,7 +157,7 @@
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = G3H7RS6HW3;
 						LastSwiftMigration = 0810;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -146,8 +198,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6E264D41D26771D0056EDBD /* DictionaryConstructor.swift in Sources */,
+				C6F5A3DF1ECC5CB200B31FC6 /* ViewPortsConstructor.swift in Sources */,
 				C6CF519C1D226DAD0052B8F6 /* ViewController.swift in Sources */,
+				C6F5A3DB1ECC5C6700B31FC6 /* PathsConstructor.swift in Sources */,
 				C6CF51A91D227BD60052B8F6 /* SWXMLHash.swift in Sources */,
+				C6F5A3DD1ECC5C9600B31FC6 /* ScenariosConstructor.swift in Sources */,
+				C6F5A3E21ECC60E700B31FC6 /* Alert.swift in Sources */,
 				C6CF519A1D226DAD0052B8F6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -263,8 +319,10 @@
 				INFOPLIST_FILE = "Sitemap to Scenario/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.olif.Sitemap-to-Scenario";
+				PRODUCT_BUNDLE_IDENTIFIER = com.enzo.backstopjs;
 				PRODUCT_NAME = "BackstopJS SC";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -273,14 +331,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = G3H7RS6HW3;
 				INFOPLIST_FILE = "Sitemap to Scenario/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.olif.Sitemap-to-Scenario";
+				PRODUCT_BUNDLE_IDENTIFIER = com.enzo.backstopjs;
 				PRODUCT_NAME = "BackstopJS SC";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
