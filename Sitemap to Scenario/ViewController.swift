@@ -113,6 +113,9 @@ class ViewController: NSViewController {
 		}
 	}
 
+
+	// MARK: - Convert XML to an Array
+
 	func xmlToArray(_ inXml: String) -> [String] {
 		let xml = SWXMLHash.parse(inXml)
 		var arrayOfLocs = [String]()
@@ -127,20 +130,22 @@ class ViewController: NSViewController {
 		return arrayOfLocs
 	}
 
+
+	// MARK: - Make Scenario
+
 	func makeScenario(_ arrayOfLinks: [String]) -> [String: AnyObject] {
+
+		var viewPorts: [[String: AnyObject]] = []
+
 		var debugStatus: Bool!
-		var viewPort = [NSDictionary]()
-		let viewPortStruct = ViewPortsConstructor()
 
-		if viewPortPhone.intValue == 1 { viewPort.append(viewPortStruct.constructViewPorts("phone", vpWidth: 320, vpPortHeight: 480) as NSDictionary) }
-		if viewPortTabletV.intValue == 1 { viewPort.append(viewPortStruct.constructViewPorts("tablet_v", vpWidth: 568, vpPortHeight: 1024) as NSDictionary) }
-		if viewPortTabletF.intValue == 1 { viewPort.append(viewPortStruct.constructViewPorts("tablet_f", vpWidth: 1920, vpPortHeight: 1080) as NSDictionary) }
-		if viewPortTabletH.intValue == 1 { viewPort.append(viewPortStruct.constructViewPorts("tablet_h", vpWidth: 1024, vpPortHeight: 768) as NSDictionary) }
-
-		let scenarioStruct = ScenariosConstructor()
+		if viewPortPhone.state == NSOnState { viewPorts.append(ViewPortsConstructor.construct("phone", vpWidth: 320, vpPortHeight: 480)) }
+		if viewPortTabletV.state == NSOnState { viewPorts.append(ViewPortsConstructor.construct("tablet_v", vpWidth: 568, vpPortHeight: 1024)) }
+		if viewPortTabletF.state == NSOnState { viewPorts.append(ViewPortsConstructor.construct("tablet_f", vpWidth: 1920, vpPortHeight: 1080)) }
+		if viewPortTabletH..state == NSOnState { viewPorts.append(ViewPortsConstructor.construct("tablet_h", vpWidth: 1024, vpPortHeight: 768)) }
 
 		let arrayOfScenarios = arrayOfLinks.map {
-			scenarioStruct.constructScenario(trimDestinationPart("\\/\\w+\\/.+", text: $0),
+			ScenariosConstructor.construct(trimDestinationPart("\\/\\w+\\/.+", text: $0),
 			                                 scUrl: $0,
 			                                 scHideSelectors: hideSelectorsTextField.stringValue,
 			                                 scRemoveSelectors: removeSelectorsTextField.stringValue,
@@ -152,8 +157,7 @@ class ViewController: NSViewController {
 			                                 scOnReadyScript: onReadyScriptTextField.stringValue)
 		}
 
-		let pathsStruct = PathsConstructor()
-		let paths = pathsStruct.constructPaths(bitmapsTestTextField.stringValue,
+		let paths = PathsConstructor.construct(bitmapsTestTextField.stringValue,
 		                                       pcBitmapsTest: bitmapsTestTextField.stringValue,
 		                                       pcCompareData: compareDataTextField.stringValue,
 		                                       pcCasperScripts: casperScriptsTextField.stringValue)
@@ -162,9 +166,11 @@ class ViewController: NSViewController {
 			debugStatus = false
 		} else { debugStatus = true }
 
-		let completeDictionary = DictionaryConstructor()
-		return completeDictionary.construct(viewPort, dcScenarios: arrayOfScenarios as [[String : AnyObject]], dcPaths: paths, dcEngine: engineTextField.stringValue, dcReport: [reportTextField.stringValue], dcCasperFlags: [casperFlagsTextField.stringValue], dcDebug: debugStatus, dcPort: Int(portTextField.intValue)) as [String : AnyObject]
+		return DictionaryConstructor.construct(viewPorts, dcScenarios: arrayOfScenarios as [[String : AnyObject]], dcPaths: paths, dcEngine: engineTextField.stringValue, dcReport: [reportTextField.stringValue], dcCasperFlags: [casperFlagsTextField.stringValue], dcDebug: debugStatus, dcPort: Int(portTextField.intValue)) as [String : AnyObject]
 	}
+
+
+	// MARK: - Trim Destination Part
 
 	func trimDestinationPart(_ regex: String!, text: String!) -> String {
 		do {

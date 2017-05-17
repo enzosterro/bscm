@@ -10,7 +10,7 @@ import Foundation
 
 struct DictionaryConstructor {
 
-    func construct(_ dcViewPorts: [NSDictionary],
+	static func construct(_ dcViewPorts: [[String: AnyObject]],
                    dcScenarios: [[String: AnyObject]],
                    dcPaths: [String: String],
                    dcEngine: String,

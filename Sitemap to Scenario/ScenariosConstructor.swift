@@ -10,16 +10,16 @@ import Foundation
 
 struct ScenariosConstructor {
 
-	func constructScenario(_ scLabel: String,
-	                       scUrl: String,
-	                       scHideSelectors: String,
-	                       scRemoveSelectors: String,
-	                       scSelectors: String,
-	                       scReadyEvent: String,
-	                       scDelay: Int,
-	                       scMisMatchThreshold: Double,
-	                       scOnBeforeScript: String,
-	                       scOnReadyScript: String) -> [String: Any] {
+	static func construct(_ scLabel: String,
+	                      scUrl: String,
+	                      scHideSelectors: String,
+	                      scRemoveSelectors: String,
+	                      scSelectors: String,
+	                      scReadyEvent: String,
+	                      scDelay: Int,
+	                      scMisMatchThreshold: Double,
+	                      scOnBeforeScript: String,
+	                      scOnReadyScript: String) -> [String: Any] {
 
 		return ["label": scLabel as AnyObject,
 		        "url": scUrl as AnyObject,

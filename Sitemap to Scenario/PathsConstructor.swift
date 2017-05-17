@@ -10,10 +10,10 @@ import Foundation
 
 struct PathsConstructor {
 
-	func constructPaths(_ pcBitmapsReference: String,
-	                    pcBitmapsTest: String,
-	                    pcCompareData: String,
-	                    pcCasperScripts: String) -> [String: String] {
+	static func construct(_ pcBitmapsReference: String,
+	                      pcBitmapsTest: String,
+	                      pcCompareData: String,
+	                      pcCasperScripts: String) -> [String: String] {
 
 		return ["bitmaps_reference": pcBitmapsReference,
 		        "bitmaps_test": pcBitmapsTest,
