@@ -10,14 +10,14 @@ import Foundation
 
 struct DictionaryConstructor {
 
-	static func construct(_ dcViewPorts: [[String: AnyObject]],
+	static func construct(dcViewPorts: [[String: AnyObject]],
                    dcScenarios: [[String: AnyObject]],
                    dcPaths: [String: String],
                    dcEngine: String,
                    dcReport: [String],
                    dcCasperFlags: [String],
                    dcDebug: Bool,
-                   dcPort: Int) -> [String: Any] {
+                   dcPort: Int) -> [String: AnyObject] {
 
         return ["viewports": dcViewPorts as AnyObject,
                 "scenarios": dcScenarios as AnyObject,
@@ -26,7 +26,7 @@ struct DictionaryConstructor {
                 "report": dcReport as AnyObject,
                 "casperFlags": dcCasperFlags as AnyObject,
                 "debug": dcDebug as AnyObject,
-                "port": dcPort]
+                "port": dcPort as AnyObject]
 
     }
 }

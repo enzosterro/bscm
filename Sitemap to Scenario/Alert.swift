@@ -10,10 +10,10 @@ import Cocoa
 
 struct Alert {
 
-	static func showDialog(_ question: String, text: String, cancelButton: Bool) {
+	static func showDialog(withTitle title: String, informativeText text: String, cancelButton: Bool = false) {
 
 		let myPopup = NSAlert()
-		myPopup.messageText = question
+		myPopup.messageText = title
 		myPopup.informativeText = text
 		myPopup.alertStyle = .warning
 		myPopup.addButton(withTitle: "OK")

@@ -10,7 +10,7 @@ import Foundation
 
 struct ScenariosConstructor {
 
-	static func construct(_ scLabel: String,
+	static func construct(scLabel: String,
 	                      scUrl: String,
 	                      scHideSelectors: String,
 	                      scRemoveSelectors: String,

@@ -10,7 +10,7 @@ import Foundation
 
 struct PathsConstructor {
 
-	static func construct(_ pcBitmapsReference: String,
+	static func construct(pcBitmapsReference: String,
 	                      pcBitmapsTest: String,
 	                      pcCompareData: String,
 	                      pcCasperScripts: String) -> [String: String] {

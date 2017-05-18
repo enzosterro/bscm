@@ -9,7 +9,7 @@
 import Cocoa
 
 
-class ViewController: NSViewController {
+final class ViewController: NSViewController {
 
 
 	// MARK: - Outlets
@@ -62,22 +62,19 @@ class ViewController: NSViewController {
 			var isDirectory: ObjCBool = false
 
 			if !fileManager.fileExists(atPath: jsonFilePath.absoluteString, isDirectory: &isDirectory) {
-				let created = fileManager.createFile(atPath: jsonFilePath.absoluteString, contents: nil, attributes: nil)
-				if created { print("File created") }
-				else { print("Couldn't create file for some reason") }
+				fileManager.createFile(atPath: jsonFilePath.absoluteString, contents: nil, attributes: nil)
 			} else {
-				Alert.showDialog("Attention!", text: "Previous file will be overwritten!", cancelButton: true)
+				Alert.showDialog(withTitle: "Attention!", informativeText: "Previous file will be overwritten!", cancelButton: true)
 				let created = fileManager.createFile(atPath: jsonFilePath.absoluteString, contents: nil, attributes: nil)
 				if created { print("File created") }
 				else { print("Couldn't create file for some reason") }
-
 			}
 
 			var jsonData: Data!
 
 			do {
-				let xmlToUrl = xmlToArray(contentOfUrl)
-				let dict = makeScenario(xmlToUrl)
+				let xmlToUrl = getLocations(from: contentOfUrl)
+				let dict = makeScenario(for: xmlToUrl)
 				jsonData = try JSONSerialization.data(withJSONObject: dict, options: JSONSerialization.WritingOptions.prettyPrinted)
 			} catch let error as NSError {
 				print("Dictionary to JSON conversion failed: \(error.localizedDescription)")
@@ -101,89 +98,105 @@ class ViewController: NSViewController {
 
 					file.write(dataToWrite)
 
-					Alert.showDialog("Success!", text: "File \"backstop.json\" successfully stored \nat ~\\Download location.", cancelButton: false)
+					Alert.showDialog(withTitle: "Success!", informativeText: "File \"backstop.json\" successfully stored \nat ~\\Download location.", cancelButton: false)
 
-					print("JSON data was written to the file successfully!")
 				}
 			} catch let error as NSError {
 				print("Couldn't write to file: \(error.localizedDescription)")
 			}
 		} else {
-			Alert.showDialog("Error", text: "Couldn't find XML data.", cancelButton: false)
+			Alert.showDialog(withTitle: "Error", informativeText: "Couldn't find XML data.", cancelButton: false)
 		}
 	}
 
 
 	// MARK: - Convert XML to an Array
 
-	func xmlToArray(_ inXml: String) -> [String] {
-		let xml = SWXMLHash.parse(inXml)
-		var arrayOfLocs = [String]()
-		for elem in xml["urlset"]["url"] {
-			let currentUrl = elem["loc"].element!.text!
-			let invalidLinkRegex = try! NSRegularExpression(pattern: "(.pdf|.txt|.xml)", options: [])
-			let nsString = currentUrl as NSString
-			let arrayOfMatches = invalidLinkRegex.matches(in: currentUrl, options: [], range: NSMakeRange(0, nsString.length))
+	/**
+	Parses locations in XML string and adds them to array.
+	
+	- Parameter xml: An XML string.
+	- Returns: An array of all locations except contain `.pdf`, `.txt` and other `.xml` files.
+	*/
+	private func getLocations(from xml: String) -> [String] {
+		let xml = SWXMLHash.parse(xml)
+		var locations: [String] = []
+
+		for element in xml["urlset"]["url"] {
+			let location = element["loc"].element!.text!
+			let invalidLocation = try! NSRegularExpression(pattern: "(.pdf|.txt|.xml)", options: [])
+			let nsString = location as NSString
+			let arrayOfMatches = invalidLocation.matches(in: location, options: [], range: NSMakeRange(0, nsString.length))
 			let result = arrayOfMatches.map { nsString.substring(with: $0.range) }
-			if result.count == 0 { arrayOfLocs.append(currentUrl) }
+			if result.count == 0 { locations.append(location) }
 		}
-		return arrayOfLocs
+
+		return locations
 	}
 
 
 	// MARK: - Make Scenario
 
-	func makeScenario(_ arrayOfLinks: [String]) -> [String: AnyObject] {
+	private func makeScenario(for arrayOfLinks: [String]) -> [String: AnyObject] {
 
 		var viewPorts: [[String: AnyObject]] = []
-
-		var debugStatus: Bool!
 
 		if viewPortPhone.state == NSOnState { viewPorts.append(ViewPortsConstructor.construct("phone", vpWidth: 320, vpPortHeight: 480)) }
 		if viewPortTabletV.state == NSOnState { viewPorts.append(ViewPortsConstructor.construct("tablet_v", vpWidth: 568, vpPortHeight: 1024)) }
 		if viewPortTabletF.state == NSOnState { viewPorts.append(ViewPortsConstructor.construct("tablet_f", vpWidth: 1920, vpPortHeight: 1080)) }
-		if viewPortTabletH..state == NSOnState { viewPorts.append(ViewPortsConstructor.construct("tablet_h", vpWidth: 1024, vpPortHeight: 768)) }
+		if viewPortTabletH.state == NSOnState { viewPorts.append(ViewPortsConstructor.construct("tablet_h", vpWidth: 1024, vpPortHeight: 768)) }
 
 		let arrayOfScenarios = arrayOfLinks.map {
-			ScenariosConstructor.construct(trimDestinationPart("\\/\\w+\\/.+", text: $0),
-			                                 scUrl: $0,
-			                                 scHideSelectors: hideSelectorsTextField.stringValue,
-			                                 scRemoveSelectors: removeSelectorsTextField.stringValue,
-			                                 scSelectors: selectorsTextField.stringValue,
-			                                 scReadyEvent: readyEventTextField.stringValue,
-			                                 scDelay: Int(delayTextField.intValue),
-			                                 scMisMatchThreshold: misMatchThresholdTextField.doubleValue,
-			                                 scOnBeforeScript: onBeforeScriptTextField.stringValue,
-			                                 scOnReadyScript: onReadyScriptTextField.stringValue)
+			ScenariosConstructor.construct(scLabel: truncateToDestinationPart(withPattern: "\\/\\w+\\/.+", in: $0) ?? "",
+			                               scUrl: $0,
+			                               scHideSelectors: hideSelectorsTextField.stringValue,
+			                               scRemoveSelectors: removeSelectorsTextField.stringValue,
+			                               scSelectors: selectorsTextField.stringValue,
+			                               scReadyEvent: readyEventTextField.stringValue,
+			                               scDelay: Int(delayTextField.intValue),
+			                               scMisMatchThreshold: misMatchThresholdTextField.doubleValue,
+			                               scOnBeforeScript: onBeforeScriptTextField.stringValue,
+			                               scOnReadyScript: onReadyScriptTextField.stringValue)
 		}
 
-		let paths = PathsConstructor.construct(bitmapsTestTextField.stringValue,
+		let paths = PathsConstructor.construct(pcBitmapsReference: bitmapsTestTextField.stringValue,
 		                                       pcBitmapsTest: bitmapsTestTextField.stringValue,
 		                                       pcCompareData: compareDataTextField.stringValue,
 		                                       pcCasperScripts: casperScriptsTextField.stringValue)
 
-		if debugComboBox.stringValue == "false" {
-			debugStatus = false
-		} else { debugStatus = true }
+		let debugStatus = debugComboBox.stringValue == "true"
 
-		return DictionaryConstructor.construct(viewPorts, dcScenarios: arrayOfScenarios as [[String : AnyObject]], dcPaths: paths, dcEngine: engineTextField.stringValue, dcReport: [reportTextField.stringValue], dcCasperFlags: [casperFlagsTextField.stringValue], dcDebug: debugStatus, dcPort: Int(portTextField.intValue)) as [String : AnyObject]
+		return DictionaryConstructor.construct(dcViewPorts: viewPorts,
+		                                       dcScenarios: arrayOfScenarios as [[String: AnyObject]],
+		                                       dcPaths: paths,
+		                                       dcEngine: engineTextField.stringValue,
+		                                       dcReport: [reportTextField.stringValue],
+		                                       dcCasperFlags: [casperFlagsTextField.stringValue],
+		                                       dcDebug: debugStatus,
+		                                       dcPort: Int(portTextField.intValue)) as [String: AnyObject]
 	}
 
 
-	// MARK: - Trim Destination Part
+	// MARK: - Truncate Destination Part
 
-	func trimDestinationPart(_ regex: String!, text: String!) -> String {
+
+	/**
+	Truncates `text` with a given `pattern`.
+
+	- Parameter pattern: A pattern for Regular Expression.
+	- Parameter text: Provide text for truncating.
+	- Returns: A new truncated string or `nil` if an incorrect pattern was given.
+	*/
+	private func truncateToDestinationPart(withPattern pattern: String, in text: String) -> String? {
 		do {
-			let regex = try NSRegularExpression(pattern: regex, options: [])
+			let regex = try NSRegularExpression(pattern: pattern, options: [])
 			let nsString = text as NSString
 			let results = regex.matches(in: text, options: [], range: NSMakeRange(0, nsString.length))
 			let firstLoc = results.map { nsString.substring(with: $0.range) }
-			var firstElement: String!
-			firstLoc.count > 0 ? (firstElement = firstLoc.first) : (firstElement = "/")
-			return firstElement
+			return firstLoc.count > 0 ? firstLoc.first! : "/"
 		} catch let error as NSError {
 			print("Invalid regex: \(error.localizedDescription)")
-			return ""
+			return nil
 		}
 	}
 
